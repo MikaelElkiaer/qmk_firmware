@@ -1,7 +1,6 @@
 {
   "version": 1,
-  "notes": "",
-  "documentation": "\"This file is a QMK Configurator export. You can import this at <https://config.qmk.fm>. It can also be used directly with QMK's source code.\n\nTo setup your QMK environment check out the tutorial: <https://docs.qmk.fm/#/newbs>\n\nYou can convert this file to a keymap.c using this command: `qmk json2c {keymap}`\n\nYou can compile this keymap using this command: `qmk compile {keymap}`\"\n",
+  "documentation": "This file is a QMK Configurator export. You can import this at <https://config.qmk.fm>. It can also be used directly with QMK's source code.\n\nTo setup your QMK environment check out the tutorial: <https://docs.qmk.fm/#/newbs>\n\nYou can convert this file to a keymap.c using this command: `qmk json2c {keymap}`\n\nYou can compile this keymap using this command: `qmk compile {keymap}`\n",
   "keyboard": "crkbd/rev1",
   "keymap": "crkbd_rev1_layout_split_3x6_3_mine",
   "layout": "LAYOUT_split_3x6_3",
@@ -54,17 +53,17 @@
       "KC_NO",
       "KC_ESC",
       "KC_NO",
-      "KC_NO",
+      "RALT(KC_Z)",
       "KC_NO",
       "KC_NO",
       "KC_PSCR",
       "KC_NO",
       "KC_PGUP",
       "KC_INS",
+      "RALT(KC_L)",
       "KC_NO",
       "KC_NO",
-      "KC_NO",
-      "KC_NO",
+      "RALT(KC_W)",
       "LCTL_T(KC_SLCK)",
       "LGUI_T(KC_PGDN)",
       "LALT_T(KC_END)",
@@ -183,5 +182,6 @@
       "KC_NO"
     ]
   ],
-  "author": ""
+  "author": "",
+  "notes": ""
 }
