@@ -30,17 +30,17 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         // Volume control
         if (clockwise) {
-            tap_code(KC_UP);
-        } else {
             tap_code(KC_DOWN);
+        } else {
+            tap_code(KC_UP);
         }
     }
     else if (index == 2) {
       if(clockwise) {
-        tap_code(KC_WH_U);
+        tap_code(KC_WH_D);
       }
       else{
-        tap_code(KC_WH_D);
+        tap_code(KC_WH_U);
       }
     }
     else if (index == 3  ) {
