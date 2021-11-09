@@ -16,6 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
+#include "drivers/sensors/pimoroni_trackball.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[0] = LAYOUT(KC_Q, KC_W, KC_E, KC_R, KC_T, KC_P, KC_Y, KC_U, KC_I, KC_O, LCTL_T(KC_A), LSFT_T(KC_S), LGUI_T(KC_D), LALT_T(KC_F), RALT_T(KC_G), RALT_T(KC_SCLN), LALT_T(KC_H), RGUI_T(KC_J), RSFT_T(KC_K), RCTL_T(KC_L), LT(4,KC_Z), KC_X, KC_C, KC_V, KC_B, KC_SLSH, KC_N, KC_M, KC_COMM, KC_DOT, KC_NO, KC_NO, KC_NO, LT(2,KC_SPC), KC_LSFT, KC_NO, LT(1,KC_BSPC), KC_NO),
@@ -60,3 +61,36 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
     return true;
 }
 #endif
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+  switch(get_highest_layer(state)) {
+    case 1:
+      trackball_set_rgbw(0, 0, 128, 0);
+      trackball_set_scrolling(true);
+      break;
+    case 2:
+      trackball_set_rgbw(128, 0, 0, 0);
+      trackball_set_scrolling(true);
+      break;
+    case 3:
+      trackball_set_rgbw(128, 0, 128, 0);
+      trackball_set_scrolling(true);
+      break;
+    case 4:
+      trackball_set_rgbw(0, 128, 0, 0);
+      trackball_set_scrolling(false);
+      break;
+    case 0:
+    default:
+      trackball_set_rgbw(0, 0, 0, 64);
+      trackball_set_scrolling(true);
+      break;
+  }
+
+  return state;
+}
+
+void keyboard_post_init_user(void) {
+  trackball_set_rgbw(0, 0, 0, 64);
+  trackball_set_scrolling(true);
+}
