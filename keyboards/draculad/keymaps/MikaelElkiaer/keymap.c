@@ -37,18 +37,10 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         }
     }
     else if (index == 2) {
-        if(layer_state_is(2)) {
-            if (clockwise) {
-                tap_code(KC_DOWN);
-            } else {
-                tap_code(KC_UP);
-            }
+        if (clockwise) {
+            tap_code(KC_DOWN);
         } else {
-            if(clockwise) {
-                tap_code(KC_WH_D);
-            } else {
-                tap_code(KC_WH_U);
-            }
+            tap_code(KC_UP);
         }
     }
     else if (index == 3  ) {
