@@ -17,23 +17,14 @@
 
 #include "quantum.h"
 
-/*   LAYOUT
-  ENCODER
-  ESC| 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  | 0  | -  | =  |BCKS | DEL  
-  TAB| Q  | W  | E  | R  | T  | Y  | U  | I  | O  | P  | [  | ]  |     \    
-  CAP| A  | S  | D  | F  | G  | H  | J  | K  | L  | ;  | '  |    ENTER 
-  LSHFT| Z  | X  | C  | V  | B  | N  | M  | ,  | .  | /  |   RSHIF | FN 
-  LCT| WIN| ALT|               ESPACE             | ALT| WIN | MN| RCT| 
-*/
-
 #define LAYOUT( \
     k00, k01, k02, k03, k04, k05, k06, k07, k08, k09, \
     k0a, k0b, k0c, k0d, k0e, k10, k11, k12, k13, k14, \
-    k15, k16, k17, k18, k19, k1a, k1b, k1c, k1e, k20, \
-              k21, k22, k23, k24, k25 \
+    k15, k16, k17, k18, k19, k1a, k1b, k1c, k1d, k1e, \
+              k20, k21, k22, k23, k24 \
 ) { \
     { k00, k01, k02, k03, k04, k05, k06, k07, k08, k09 }, \
     { k0a, k0b, k0c, k0d, k0e, k10, k11, k12, k13, k14 }, \
-    { k15, k16, k17, k18, k19, k1a, k1b, k1c, k1e, k20 }, \
-    { KC_NO, KC_NO, k21, k22, k23, k24, k25, KC_NO, KC_NO, KC_NO }\
+    { k15, k16, k17, k18, k19, k1a, k1b, k1c, k1d, k1e }, \
+    { KC_NO, KC_NO, k20, k21, k22, k23, k24, KC_NO, KC_NO, KC_NO }\
 }
