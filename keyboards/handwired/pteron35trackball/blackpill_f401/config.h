@@ -21,4 +21,7 @@
 #define MATRIX_ROW_PINS \
     { A5, A4, A3, A2 }
 #define UNUSED_PINS \
-    { A2, A1, A0, C15, C14, C13, A9, A10, A11, A12, A15, B3, B4, B5, B8, B9 }
+    { A1, A0, C15, C14, C13, A9, A10, A11, A12, A15, B3, B4, B5, B8, B9 }
+
+// #define I2C1_SCL_PIN        B7
+// #define I2C1_SDA_PIN        B6
