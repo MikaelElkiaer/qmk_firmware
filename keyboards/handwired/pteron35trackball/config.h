@@ -29,3 +29,7 @@
 
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 1
+
+#define POINTING_DEVICE_ROTATION_180
+#define PIMORONI_TRACKBALL_MOUSE_SCALE 3
+#define PIMORONI_TRACKBALL_SCROLL_SCALE 1
