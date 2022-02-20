@@ -17,8 +17,8 @@
 #pragma once
 
 #define MATRIX_COL_PINS \
-    { A7, B10, B2, B1, B0, B12, B13, B14, B15, A8 }
+    { A6, B10, A7, B1, B0, B12, B13, B14, B15, A8 }
 #define MATRIX_ROW_PINS \
-    { A6, A5, A4, A3 }
+    { A5, A4, A3, A2 }
 #define UNUSED_PINS \
     { A2, A1, A0, C15, C14, C13, A9, A10, A11, A12, A15, B3, B4, B5, B8, B9 }

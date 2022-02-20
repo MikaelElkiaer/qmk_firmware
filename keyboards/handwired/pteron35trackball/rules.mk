@@ -15,7 +15,7 @@ SLEEP_LED_ENABLE = yes
 OLED_ENABLE = no
 OLED_DRIVER = SSD1306
 ENCODER_ENABLE = no
-# POINTING_DEVICE_ENABLE = yes
-# POINTING_DEVICE_DRIVER = pimoroni_trackball
+POINTING_DEVICE_ENABLE = yes
+POINTING_DEVICE_DRIVER = pimoroni_trackball
 
 DEFAULT_FOLDER = handwired/pteron35trackball/blackpill_f401
