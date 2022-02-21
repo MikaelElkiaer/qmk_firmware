@@ -28,3 +28,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[4] = LAYOUT(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BTN1, KC_BTN2, KC_BTN3, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO)
 };
 
+layer_state_t layer_state_set_user(layer_state_t state) {
+  switch(get_highest_layer(state)) {
+    case 1:
+      pimoroni_trackball_set_rgbw(0, 0, 128, 0);
+      break;
+    case 2:
+      pimoroni_trackball_set_rgbw(128, 0, 0, 0);
+      break;
+    case 3:
+      pimoroni_trackball_set_rgbw(0, 128, 0, 0);
+      break;
+    case 4:
+      pimoroni_trackball_set_rgbw(0, 0, 0, 64);
+      pimoroni_trackball_set_precision(0.3);
+      break;
+    case 0:
+    default:
+      pimoroni_trackball_set_rgbw(128, 0, 128, 0);
+      pimoroni_trackball_set_precision(1);
+      break;
+  }
+
+  return state;
+}
+
+void keyboard_post_init_user(void) {
+  pimoroni_trackball_set_rgbw(128, 0, 128, 0);
+  pimoroni_trackball_set_precision(1);
+}
