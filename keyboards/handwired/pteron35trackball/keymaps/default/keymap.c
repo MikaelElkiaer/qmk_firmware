@@ -28,6 +28,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[4] = LAYOUT(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BTN1, KC_BTN2, KC_BTN3, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO)
 };
 
+static bool scrolling_mode = false;
+
 layer_state_t layer_state_set_user(layer_state_t state) {
   switch(get_highest_layer(state)) {
     case 1:
@@ -37,7 +39,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
       pimoroni_trackball_set_rgbw(128, 0, 0, 0);
       break;
     case 3:
+      scrolling_mode = true;
       pimoroni_trackball_set_rgbw(0, 128, 0, 0);
+      pimoroni_trackball_set_precision(0.1);
       break;
     case 4:
       pimoroni_trackball_set_rgbw(0, 0, 0, 64);
@@ -45,6 +49,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
       break;
     case 0:
     default:
+      scrolling_mode = false;
       pimoroni_trackball_set_rgbw(128, 0, 128, 0);
       pimoroni_trackball_set_precision(1);
       break;
@@ -56,4 +61,14 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 void keyboard_post_init_user(void) {
   pimoroni_trackball_set_rgbw(128, 0, 128, 0);
   pimoroni_trackball_set_precision(1);
+}
+
+report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
+    if (scrolling_mode) {
+        mouse_report.h = mouse_report.x;
+        mouse_report.v = -mouse_report.y;
+        mouse_report.x = 0;
+        mouse_report.y = 0;
+    }
+    return mouse_report;
 }
