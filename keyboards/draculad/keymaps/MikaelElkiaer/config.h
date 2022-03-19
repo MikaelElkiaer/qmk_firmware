@@ -17,18 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define SPLIT_USB_DETECT
 
-//comment that out if your trackball is on the left side
-#define TRACKBALL_RIGHT
-#define PIMORONI_TRACKBALL_ROTATE
-#define PIMORONI_TRACKBALL_MOUSE_SCALE 3
-#define PIMORONI_TRACKBALL_SCROLL_SCALE 1
-
 #define TAPPING_TERM 175
 #define PERMISSIVE_HOLD
 #define IGNORE_MOD_TAP_INTERRUPT
-
-#ifdef TRACKBALL_RIGHT
-//  #define PIMORONI_TRACKBALL_INVERT_X
-  #define PIMORONI_TRACKBALL_INVERT_Y
-#endif
 
