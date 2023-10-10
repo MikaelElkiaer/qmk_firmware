@@ -28,15 +28,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case 2:
-            /* charybdis_set_pointer_dragscroll_enabled(true); */
+            charybdis_set_pointer_dragscroll_enabled(true);
             break;
         case 4:
-            charybdis_set_pointer_dragscroll_enabled(false);
-            /* charybdis_set_pointer_sniping_enabled(true); */
+            charybdis_set_pointer_sniping_enabled(true);
             break;
         default:
-            charybdis_set_pointer_dragscroll_enabled(true);
-            /* charybdis_set_pointer_sniping_enabled(false); */
+            charybdis_set_pointer_dragscroll_enabled(false);
+            charybdis_set_pointer_sniping_enabled(false);
             break;
     }
     return state;
